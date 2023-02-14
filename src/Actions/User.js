@@ -7,7 +7,7 @@ export const loginUser = (email, password) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "https://sociobook-app.herokuapp.com/user/login",
+      "https://sociobook-server.onrender.com/user/login",
       { email, password },
       {
         headers: {
@@ -41,7 +41,7 @@ export const registerUser =
       });
 
       const { data } = await axios.post(
-        "https://sociobook-app.herokuapp.com/user/register",
+        "https://sociobook-server.onrender.com/user/register",
         { name, email, password, avatar },
         {
           headers: {
@@ -74,7 +74,7 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
     });
 
     const { data } = await axios.put(
-      "https://sociobook-app.herokuapp.com/user/update/profile",
+      "https://sociobook-server.onrender.com/user/update/profile",
       { name, email, avatar },
       {
         headers: {
@@ -104,7 +104,7 @@ export const updatePassword =
       });
 
       const { data } = await axios.put(
-        "https://sociobook-app.herokuapp.com/user/update/password",
+        "https://sociobook-server.onrender.com/user/update/password",
         { oldPassword, newPassword },
         {
           headers: {
@@ -132,7 +132,7 @@ export const deleteMyProfile = () => async (dispatch) => {
       type: "deleteProfileRequest",
     });
 
-    const { data } = await axios.delete("https://sociobook-app.herokuapp.com/user/delete/me", {
+    const { data } = await axios.delete("https://sociobook-server.onrender.com/user/delete/me", {
       headers: {
         Authorization: localStorage.getItem("token"),
       },
@@ -157,7 +157,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "https://sociobook-app.herokuapp.com/user/forgot/password",
+      "https://sociobook-server.onrender.com/user/forgot/password",
       { email },
       {
         headers: {
@@ -186,7 +186,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
     });
 
     const { data } = await axios.put(
-      `https://sociobook-app.herokuapp.com/user/reset/password/${token}`,
+      `https://sociobook-server.onrender.com/user/reset/password/${token}`,
       { password},
       
       {
@@ -215,7 +215,7 @@ export const logoutUser = () => async (dispatch) => {
       type: "LogoutUserRequest",
     });
 
-    const { data } = await axios.get("https://sociobook-app.herokuapp.com/user/logout");
+    const { data } = await axios.get("https://sociobook-server.onrender.com/user/logout");
     console.log(data.success);
     if (data.success === true) {
       localStorage.clear();
@@ -238,7 +238,7 @@ export const loadUser = () => async (dispatch) => {
       type: "LoadUserRequest",
     });
 
-    const { data } = await axios.get("https://sociobook-app.herokuapp.com/user/me", {
+    const { data } = await axios.get("https://sociobook-server.onrender.com/user/me", {
       headers: {
         Authorization: localStorage.getItem("token"),
       },
@@ -263,7 +263,7 @@ export const getFollowingPost = () => async (dispatch) => {
       type: "postOfFollowingRequest",
     });
 
-    const { data } = await axios.get("https://sociobook-app.herokuapp.com/post/posts", {
+    const { data } = await axios.get("https://sociobook-server.onrender.com/post/posts", {
       headers: { Authorization: localStorage.getItem("token") },
     });
     // console.log(data)
@@ -287,7 +287,7 @@ export const getMyPosts = () => async (dispatch) => {
       type: "myPostsRequest",
     });
 
-    const { data } = await axios.get("https://sociobook-app.herokuapp.com/user/my/posts", {
+    const { data } = await axios.get("https://sociobook-server.onrender.com/user/my/posts", {
       headers: { Authorization: localStorage.getItem("token") },
     });
     dispatch({
@@ -309,7 +309,7 @@ export const getUsersPosts = (id) => async (dispatch) => {
       type: "userPostsRequest",
     });
 
-    const { data } = await axios.get(`https://sociobook-app.herokuapp.com/user/userposts/${id}`, {
+    const { data } = await axios.get(`https://sociobook-server.onrender.com/user/userposts/${id}`, {
       headers: { Authorization: localStorage.getItem("token") },
     });
     dispatch({
@@ -331,7 +331,7 @@ export const getUsersProfile = (id) => async (dispatch) => {
       type: "userProfileRequest",
     });
 
-    const { data } = await axios.get(`https://sociobook-app.herokuapp.com/user/${id}`, {
+    const { data } = await axios.get(`https://sociobook-server.onrender.com/user/${id}`, {
       headers: { Authorization: localStorage.getItem("token") },
     });
     dispatch({
@@ -353,7 +353,7 @@ export const followAndUnfollowUser = (id) => async (dispatch) => {
       type: "followUserRequest",
     });
 
-    const { data } = await axios.get(`https://sociobook-app.herokuapp.com/user/follow/${id}`, {
+    const { data } = await axios.get(`https://sociobook-server.onrender.com/user/follow/${id}`, {
       headers: { Authorization: localStorage.getItem("token") },
     });
     dispatch({
@@ -375,7 +375,7 @@ export const getAllUsers = (name = "") => async (dispatch) => {
       type: "allUsersRequest",
     });
 
-    const { data } = await axios.get(`https://sociobook-app.herokuapp.com/user/users?name=${name}`, {
+    const { data } = await axios.get(`https://sociobook-server.onrender.com/user/users?name=${name}`, {
       headers: { Authorization: localStorage.getItem("token") },
     });
 

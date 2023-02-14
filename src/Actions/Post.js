@@ -7,7 +7,7 @@ export const likePost = (id) => async (dispatch) => {
       type: "likeRequest",
     });
 
-    const { data } = await axios.get(`https://sociobook-app.herokuapp.com/post/${id}`, {
+    const { data } = await axios.get(`https://sociobook-server.onrender.com/post/${id}`, {
       headers: { Authorization: localStorage.getItem("token") },
     });
 
@@ -31,7 +31,7 @@ export const addCommentOnPost = (id, comment) => async (dispatch) => {
     });
 
     const { data } = await axios.put(
-      `https://sociobook-app.herokuapp.com/post/comment/${id}`,
+      `https://sociobook-server.onrender.com/post/comment/${id}`,
       {
         comment,
       },
@@ -64,7 +64,7 @@ export const deleteCommentOnPost = (id, commentId) => async (dispatch) => {
     });
 
     const { data } = await axios.delete(
-      `https://sociobook-app.herokuapp.com/post/comment/${id}`,
+      `https://sociobook-server.onrender.com/post/comment/${id}`,
      
       {
         headers: {
@@ -98,7 +98,7 @@ export const createNewPost = (caption, image) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "https://sociobook-app.herokuapp.com/post/create",
+      "https://sociobook-server.onrender.com/post/create",
       {
         caption: caption,
         image: image,
@@ -132,7 +132,7 @@ export const updateCaption = (caption, id) => async (dispatch) => {
     });
 
     const { data } = await axios.put(
-      `https://sociobook-app.herokuapp.com/post/${id}`,
+      `https://sociobook-server.onrender.com/post/${id}`,
       {
         caption: caption,
       },
@@ -164,7 +164,7 @@ export const deletePost = (id) => async (dispatch) => {
       type: "deletePostRequest",
     });
 
-    const { data } = await axios.delete(`https://sociobook-app.herokuapp.com/post/${id}`, {
+    const { data } = await axios.delete(`https://sociobook-server.onrender.com/post/${id}`, {
       headers: {
         "Content-type": "application/json",
         Authorization: localStorage.getItem("token"),
